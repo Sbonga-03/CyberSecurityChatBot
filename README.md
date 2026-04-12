@@ -52,9 +52,9 @@ The chatbot provides an interactive and user-friendly experience using text, voi
 ### 🧱 Code Structure
 - Organized into multiple classes:
   - `Program` → Entry point
-  - `ChatEngine` → Controls chatbot flow
-  - `ResponseService` → Handles responses
-  - `UIHelper` → Manages console display
+  - `StartupManger` → Controls chatbot startup, user interaction flow, and main logic
+  - `CyberDictionary` → Stores cybersecurity keywords and responses
+  - `ConsoleHelper` → Handles console display formatting, colors, and speech output
 
 ---
 
