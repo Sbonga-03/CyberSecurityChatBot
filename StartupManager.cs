@@ -88,7 +88,7 @@ namespace CyberSecurityChatbot
         {
             SpeechSynthesizer voice = new SpeechSynthesizer();
 
-            Header("Cybersecurity Awareness Chatbot");
+         
 
             // ===== ASCII =====
             ForegroundColor = ConsoleColor.Cyan;
