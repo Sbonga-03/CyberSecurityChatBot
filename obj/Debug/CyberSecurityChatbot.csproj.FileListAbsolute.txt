@@ -1,0 +1,7 @@
+C:\Users\mpung\source\repos\CyberSecurityChatbot\bin\Debug\CyberSecurityChatbot.exe.config
+C:\Users\mpung\source\repos\CyberSecurityChatbot\bin\Debug\CyberSecurityChatbot.exe
+C:\Users\mpung\source\repos\CyberSecurityChatbot\bin\Debug\CyberSecurityChatbot.pdb
+C:\Users\mpung\source\repos\CyberSecurityChatbot\obj\Debug\CyberSecurityChatbot.csproj.AssemblyReference.cache
+C:\Users\mpung\source\repos\CyberSecurityChatbot\obj\Debug\CyberSecurityChatbot.csproj.CoreCompileInputs.cache
+C:\Users\mpung\source\repos\CyberSecurityChatbot\obj\Debug\CyberSecurityChatbot.exe
+C:\Users\mpung\source\repos\CyberSecurityChatbot\obj\Debug\CyberSecurityChatbot.pdb
