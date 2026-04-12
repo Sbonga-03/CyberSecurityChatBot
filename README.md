@@ -66,9 +66,22 @@ The chatbot provides an interactive and user-friendly experience using text, voi
 ---
 
 ## ▶ How to Run
-1. Open the project in **Visual Studio / NetBeans**
+1. Open the project in **Visual Studio / Visual Studio**
 2. Build the solution
 3. Run the program
 4. Follow on-screen instructions
+
+---
+
+---
+
+## 🧑‍💻 Author
+**Sbongokuhle Mpungose**  
+ST10482847  
+
+---
+
+## 📄 License
+This project is for  educational purpose**Rosebank College use only**.
 
 ---
