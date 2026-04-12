@@ -72,6 +72,39 @@ namespace CyberSecurityChatbot
                 {"nist", "NIST provides cybersecurity frameworks and best practices for organizations."},
                 {"hipaa", "HIPAA is a US law protecting sensitive health information."},
                 {"ccpa", "The California Consumer Privacy Act gives consumers control over their personal data."}
+
+                // --- Advanced concepts ---
+                {"hashing", "Hashing is the process of converting data into a fixed-length string for security purposes."},
+                {"sha256", "SHA-256 is a secure cryptographic hashing algorithm used to protect data integrity."},
+                {"md5", "MD5 is an older hashing algorithm that is now considered insecure for most security uses."},
+                {"ssl", "SSL is a protocol that encrypts communication between a browser and a server."},
+                {"tls", "TLS is the modern version of SSL used to secure internet communications."},
+                {"digital signature", "A digital signature verifies the authenticity and integrity of digital messages or documents."},
+                {"public key cryptography", "Public key cryptography uses a pair of keys (public and private) to secure communication."},
+                {"private key", "A private key is used to decrypt data that was encrypted with a matching public key."},
+                {"zero trust", "Zero Trust is a security model that assumes no user or system is trusted by default."},
+
+                // --- Attack types (advanced) ---
+                {"brute force", "A brute force attack tries many password combinations until the correct one is found."},
+                {"dictionary attack", "A dictionary attack uses common words and password lists to guess login credentials."},
+                {"credential stuffing", "Credential stuffing uses stolen login details from one site to access other accounts."},
+                {"cross site scripting", "Cross-site scripting (XSS) injects malicious scripts into websites viewed by other users."},
+                {"xss", "Cross-site scripting (XSS) injects malicious scripts into websites viewed by other users."},
+                {"spear phishing", "Spear phishing targets specific individuals with highly personalized fake messages."},
+                {"whaling", "Whaling attacks target high-profile individuals like executives or managers."},
+                {"botnet", "A botnet is a group of infected computers controlled by attackers."},
+
+                // --- Identity & authentication ---
+                {"biometrics", "Biometrics uses physical traits like fingerprints or facial recognition for authentication."},
+                {"authentication", "Authentication verifies the identity of a user before granting access."},
+                {"authorization", "Authorization determines what resources a user is allowed to access."},
+
+                // --- Modern cybersecurity concepts ---
+                {"cloud security", "Cloud security protects data and systems stored in cloud environments."},
+                {"data breach", "A data breach occurs when sensitive information is accessed without permission."},
+                {"vulnerability", "A vulnerability is a weakness in a system that can be exploited by attackers."},
+                {"patch management", "Patch management is the process of updating software to fix security vulnerabilities."},
+                {"incident response", "Incident response is how organizations detect and respond to cyberattacks."}
             };
         }
 
