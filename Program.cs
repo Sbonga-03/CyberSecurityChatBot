@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
 using static System.Console;
+using System.Windows.Forms;
 
 namespace CyberSecurityChatbot
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            StartupManager startup = new StartupManager();
-            startup.Start(); // Calls all the chatbot logic
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new ChatBotForm());
         }
     }
 }

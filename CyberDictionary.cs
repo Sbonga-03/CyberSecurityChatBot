@@ -15,7 +15,7 @@ namespace CyberSecurityChatbot
             {
                 // --- Core concepts ---
                 {"cybersecurity", "Cybersecurity is the practice of protecting computers, networks, and data from attacks, damage, or unauthorized access."},
-                {"information security", "Information security focuses on protecting the confidentiality, integrity, and availability of data."},
+                {"Information security", "Information security focuses on protecting the confidentiality, integrity, and availability of data."},
                 {"info security", "Information security focuses on protecting the confidentiality, integrity, and availability of data."},
                 {"network security", "Network security protects networks and data by preventing unauthorized access, misuse, or theft."},
                 {"endpoint security", "Endpoint security protects devices like laptops, smartphones, and tablets against cyber threats."},
@@ -71,7 +71,7 @@ namespace CyberSecurityChatbot
                 {"iso 27001", "ISO 27001 is an international standard for managing information security."},
                 {"nist", "NIST provides cybersecurity frameworks and best practices for organizations."},
                 {"hipaa", "HIPAA is a US law protecting sensitive health information."},
-                {"ccpa", "The California Consumer Privacy Act gives consumers control over their personal data."}
+                {"ccpa", "The California Consumer Privacy Act gives consumers control over their personal data."},
 
                 // --- Advanced concepts ---
                 {"hashing", "Hashing is the process of converting data into a fixed-length string for security purposes."},
