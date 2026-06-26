@@ -108,7 +108,6 @@
     <Compile Include="Forms\ChatBotForm.Designer.cs">
       <DependentUpon>ChatBotForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ConsoleHelper.cs" />
     <Compile Include="Core\CyberDictionary.cs" />
     <Compile Include="Core\ChatBotEngine.cs" />
     <Compile Include="Data\DatabaseHelper.cs" />
@@ -131,7 +130,6 @@
       <DependentUpon>QuizForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\QuizManager.cs" />
-    <Compile Include="Helpers\StartupManager.cs" />
     <Compile Include="Forms\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>

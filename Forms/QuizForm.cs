@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CyberSecurityChatbot
 {
-    public partial class QuizForm : Form
+    public partial class  QuizForm : Form
     {
         private ActivityLogger logger;
         private List<QuizQuestion> questions = new List<QuizQuestion>();

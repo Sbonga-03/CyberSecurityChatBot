@@ -5,15 +5,17 @@ namespace CyberSecurityChatbot
 {
     internal class TaskManager
     {
-        private List<TaskItem> tasks = new List<TaskItem>();
+        private DatabaseHelper db = new DatabaseHelper();
 
         public void AddTask(string taskName)
         {
-            tasks.Add(new TaskItem(taskName));
+            db.AddTask(taskName, "Added via chat", null);
         }
 
         public string ViewTasks()
         {
+            List<TaskItem> tasks = db.GetAllTasks();
+
             if (tasks.Count == 0)
                 return "No tasks found.";
 
@@ -27,19 +29,15 @@ namespace CyberSecurityChatbot
             return sb.ToString();
         }
 
-        public bool CompleteTask(int index)
+        public bool CompleteTask(int id)
         {
-            if (index >= 0 && index < tasks.Count)
-            {
-                tasks[index].IsCompleted = true;
-                return true;
-            }
-
-            return false;
+            db.MarkComplete(id);
+            return true;
         }
 
         public int Count()
         {
+            List<TaskItem> tasks = db.GetAllTasks();
             return tasks.Count;
         }
     }

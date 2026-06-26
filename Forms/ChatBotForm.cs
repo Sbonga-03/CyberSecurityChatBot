@@ -170,52 +170,78 @@ namespace CyberSecurityChatbot
 
                 await ShowTyping();
 
-                AddMessage(
-                    "💡 What would you like to do?",
-                    false,
-                    DateTime.Now.ToShortTimeString()
-                );
-
-                // ================= QUICK ACTION BUTTONS =================
-                Panel quickButtons = new Panel
+                // ================= QUICK ACTION BUTTONS IN BUBBLE =================
+                Panel container = new Panel
                 {
                     Width = flpChat.ClientSize.Width,
                     AutoSize = true,
                     Margin = new Padding(5)
                 };
 
-                FlowLayoutPanel btnFlow = new FlowLayoutPanel
+                PictureBox botAvatar = new PictureBox
+                {
+                    Size = new Size(35, 35),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Image = botImg,
+                    Margin = new Padding(10, 5, 5, 5)
+                };
+
+                Panel bubble = new Panel
+                {
+                    Padding = new Padding(10),
+                    BackColor = Color.FromArgb(235, 235, 235),
+                    AutoSize = true,
+                    MaximumSize = new Size(280, 0)
+                };
+
+                FlowLayoutPanel bubbleContent = new FlowLayoutPanel
                 {
                     FlowDirection = FlowDirection.TopDown,
                     AutoSize = true,
                     WrapContents = false,
-                    Margin = new Padding(10, 0, 0, 0)
+                    Width = 250
                 };
 
+                Label msgLabel = new Label
+                {
+                    Text = "💡 What would you like to do?",
+                    Font = new Font("Segoe UI", 10F, FontStyle.Bold),
+                    AutoSize = true,
+                    MaximumSize = new Size(240, 0),
+                    Margin = new Padding(0, 0, 0, 8)
+                };
+
+                bubbleContent.Controls.Add(msgLabel);
+
                 string[] btnLabels = {
-                "📋 Manage My Tasks",
-                "🎮 Take the Quiz",
-                "📜 View Activity Log",
-                "🔐 Ask About Passwords",
-                "🛡️ Ask About Phishing",
-                "🔑 Enable 2FA"
-};
+                    "📋 Manage My Tasks",
+                    "🎮 Take the Quiz",
+                    "📜 View Activity Log",
+                    "🔐 Ask About Passwords",
+                    "🛡️ Ask About Phishing",
+                    "🔑 Enable 2FA"
+                };
 
                 foreach (string label in btnLabels)
                 {
                     Button quickBtn = new Button
                     {
                         Text = label,
-                        Font = new Font("Segoe UI", 10F),
+                        Font = new Font("Segoe UI", 9F),
                         ForeColor = Color.FromArgb(22, 160, 133),
                         BackColor = Color.White,
                         FlatStyle = FlatStyle.Flat,
-                        AutoSize = true,
-                        Margin = new Padding(2),
+
+                        Width = 240,     // Makes all buttons same width
+                        Height = 35,     // Makes all buttons same height
+
+                        Margin = new Padding(0, 3, 0, 3),
                         Cursor = Cursors.Hand,
+
                         TextAlign = ContentAlignment.MiddleLeft,
-                        Padding = new Padding(8, 5, 8, 5)
+                        Padding = new Padding(6, 4, 6, 4)
                     };
+
                     quickBtn.FlatAppearance.BorderColor = Color.FromArgb(22, 160, 133);
                     quickBtn.FlatAppearance.BorderSize = 1;
 
@@ -239,33 +265,77 @@ namespace CyberSecurityChatbot
                         }
                         else if (capturedLabel.Contains("Passwords"))
                         {
-                            AddMessage("password", true, DateTime.Now.ToShortTimeString());
+                            AddMessage("Tell me about passwords", true, DateTime.Now.ToShortTimeString());
                             string resp = engine.ProcessMessage("password");
                             activityLogger.Log("Chat: User asked about passwords");
                             AddMessage(resp, false, DateTime.Now.ToShortTimeString());
                         }
                         else if (capturedLabel.Contains("Phishing"))
                         {
-                            AddMessage("phishing", true, DateTime.Now.ToShortTimeString());
+                            AddMessage("Tell me about phishing", true, DateTime.Now.ToShortTimeString());
                             string resp = engine.ProcessMessage("phishing");
                             activityLogger.Log("Chat: User asked about phishing");
                             AddMessage(resp, false, DateTime.Now.ToShortTimeString());
                         }
                         else if (capturedLabel.Contains("2FA"))
                         {
-                            AddMessage("enable 2FA", true, DateTime.Now.ToShortTimeString());
+                            AddMessage("Enable 2FA", true, DateTime.Now.ToShortTimeString());
                             string resp = engine.ProcessMessage("enable 2FA");
                             activityLogger.Log("Chat: User asked about 2FA");
                             AddMessage(resp, false, DateTime.Now.ToShortTimeString());
                         }
                     };
 
-                    btnFlow.Controls.Add(quickBtn);
+                    bubbleContent.Controls.Add(quickBtn);
                 }
 
-                quickButtons.Controls.Add(btnFlow);
-                flpChat.Controls.Add(quickButtons);
-                flpChat.ScrollControlIntoView(quickButtons);
+                bubble.Controls.Add(bubbleContent);
+
+                Label timeLabel = new Label
+                {
+                    Text = DateTime.Now.ToShortTimeString(),
+                    Font = new Font("Segoe UI", 7),
+                    ForeColor = Color.Gray,
+                    AutoSize = true,
+                    Margin = new Padding(0, 3, 0, 0)
+                };
+
+                FlowLayoutPanel bubbleColumn = new FlowLayoutPanel
+                {
+                    FlowDirection = FlowDirection.TopDown,
+                    AutoSize = true,
+                    WrapContents = false
+                };
+
+                bubbleColumn.Controls.Add(bubble);
+                bubbleColumn.Controls.Add(timeLabel);
+
+                bubble.HandleCreated += (s, e) =>
+                {
+                    GraphicsPath path = new GraphicsPath();
+                    int r = 15;
+                    path.AddArc(0, 0, r, r, 180, 90);
+                    path.AddArc(bubble.Width - r, 0, r, r, 270, 90);
+                    path.AddArc(bubble.Width - r, bubble.Height - r, r, r, 0, 90);
+                    path.AddArc(0, bubble.Height - r, r, r, 90, 90);
+                    path.CloseAllFigures();
+                    bubble.Region = new Region(path);
+                };
+
+                FlowLayoutPanel row = new FlowLayoutPanel
+                {
+                    Width = flpChat.ClientSize.Width,
+                    AutoSize = true,
+                    WrapContents = false,
+                    FlowDirection = FlowDirection.LeftToRight
+                };
+
+                row.Controls.Add(botAvatar);
+                row.Controls.Add(bubbleColumn);
+
+                container.Controls.Add(row);
+                flpChat.Controls.Add(container);
+                flpChat.ScrollControlIntoView(container);
 
                 txtUserInput.Clear();
                 return;

@@ -84,7 +84,7 @@
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
 
             // ================= CLOSE BUTTON =================
-            this.btnClose.Text = "❌ Close";
+            this.btnClose.Text = "< Back";
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(44, 62, 80);
             this.btnClose.ForeColor = System.Drawing.Color.White;
